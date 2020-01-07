@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes){
     }
   }, { sequelize, modelName: 'Burger' });
 
-  // Burger.sync();
+  Burger.sync();
 
   return Burger;
 }
