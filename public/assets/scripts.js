@@ -13,7 +13,7 @@ nameBtnEl.addEventListener("click", function () {
             name: newBurger
         })
             .then(function (res) {
-                console.log(nameEl)
+                displayBurger();
             })
             .catch(function (error) {
                 console.log(error);
@@ -23,5 +23,14 @@ nameBtnEl.addEventListener("click", function () {
 
 // Display added burger
 
+function displayBurger(){
+    axios.get('/api/burger')
+      .then(function (res) {
+        console.log(res);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+}
 
 // Devour Burger
