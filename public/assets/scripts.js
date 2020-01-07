@@ -26,11 +26,13 @@ nameBtnEl.addEventListener("click", function () {
 function displayBurger(){
     axios.get('/api/burger')
       .then(function (res) {
-        console.log(res);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-}
+
+        //  DISPLAY BURGERS FUNCTION
+//         console.log(res);
+//       })
+//       .catch(function (error) {
+//         console.log(error);
+//       });
+// }
 
 // Devour Burger
