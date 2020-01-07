@@ -9,7 +9,7 @@ const express = require("express");
 // Sets up the Express App
 // =============================================================
 const app = express();
-const PORT = process.env.PORT || 8889;
+const PORT = process.env.PORT || 3000;
 // Requiring our models for syncing
 const db = require("./models");
 // Sets up the Express app to handle data parsing
