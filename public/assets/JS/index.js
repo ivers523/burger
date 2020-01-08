@@ -1,4 +1,4 @@
-import API from "../JS/API.js";
+import API from "./API";
 
 // Grab elements from HTML page
 
@@ -23,7 +23,7 @@ const refreshBurgers = function() {
   
           const buttonEl = document.createElement("button");
           buttonEl.classList.add("btn", "btn-warning", "devour");
-          buttonEl.innerHTML = "devour burger";
+          buttonEl.innerHTML = "devour!";
           buttonEl.addEventListener("click", handleDevBtnClick);
   
           liEl.append(buttonEl);
