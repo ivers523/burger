@@ -1,4 +1,4 @@
-import API from "./API";
+import API from "../JS/API";
 
 // Grab elements from HTML page
 
@@ -9,8 +9,6 @@ const devouredEl = document.getElementById("devoured")
 
 const refreshBurgers = function() {
     API.getBurger().then(function(data) {
-      readyEl.innerHTML = "";
-      devouredEl.innerHTML = "";
       for (let i = 0; i < data.length; i++) {
         if (!data[i].devoured) {
           const pEl = document.createElement("p");
