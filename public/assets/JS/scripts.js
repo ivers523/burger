@@ -1,4 +1,4 @@
-import API from "../JS/API";
+import API from "../JS/API.js";
 
 // Grab elements from HTML page
 
@@ -8,29 +8,44 @@ const readyEl = document.getElementById("ready")
 const devouredEl = document.getElementById("devoured")
 
 const refreshBurgers = function() {
-    API.getExamples().then(function(data) {
-      const burgerEls = data.map(function(burger) {
-        const aEl = document.createElement("a");
-        aEl.innerHTML = burger.name;
-        aEl.setAttribute("href", "/example/?id=" + burger.id);
-  
-        const liEl = document.createElement("li");
-        liEl.classList.add("list-group-item");
-        liEl.setAttribute("data-id", burger.id);
-        liEl.append(aEl);
-  
-        const buttonEl = document.createElement("button");
-        buttonEl.classList.add("btn", "btn-danger", "float-right", "devour");
-        buttonEl.innerHTML = "devour";
-        buttonEl.addEventListener("click", handleDevBtnClick);
-  
-        liEl.append(buttonEl);
-  
-        return liEl;
-      });
-  
+    API.getBurger().then(function(data) {
       readyEl.innerHTML = "";
-      readyEl.append(...burgerEls);
+      devouredEl.innerHTML = "";
+      for (let i = 0; i < data.length; i++) {
+        if (!data[i].devoured) {
+          const pEl = document.createElement("p");
+          pEl.innerHTML = data[i].name;
+  
+          const liEl = document.createElement("li");
+          liEl.classList.add("list-group-item");
+          liEl.setAttribute("data-id", data[i].id);
+          liEl.append(pEl);
+  
+          const buttonEl = document.createElement("button");
+          buttonEl.classList.add("btn", "btn-warning", "devour");
+          buttonEl.innerHTML = "devour burger";
+          buttonEl.addEventListener("click", handleDevBtnClick);
+  
+          liEl.append(buttonEl);
+          devouredEl.append(liEl);
+        } else {
+          const pEl = document.createElement("p");
+          pEl.innerHTML = data[i].name;
+  
+          const liEl = document.createElement("li");
+          liEl.classList.add("list-group-item");
+          liEl.setAttribute("data-id", data[i].id);
+          liEl.append(pEl);
+  
+          const buttonEl = document.createElement("button");
+          buttonEl.classList.add("btn", "btn-danger", "devour");
+          buttonEl.innerHTML = "delete";
+          buttonEl.addEventListener("click", handleDeleteBtnClick);
+  
+          liEl.append(buttonEl);
+          readyEl.append(liEl);
+        }
+      }
     });
   };
   refreshBurgers();
