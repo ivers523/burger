@@ -15,11 +15,11 @@ export default {
       return fetch("/api/burger").then(res => res.json());
     },
 
-    devBurger: function(id) {
-        return fetch("/api/burgers/" + id, {
-          method: "PUT"
-        }).then(res => res.json);
-      },
+    // devBurger: function(id) {
+    //     return fetch("/api/burgers/" + id, {
+    //       method: "PUT"
+    //     }).then(res => res.json);
+    //   },
 
 
 //     deleteExample: function(id) {

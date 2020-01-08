@@ -41,10 +41,13 @@ const refreshBurgers = function() {
           buttonEl.addEventListener("click", handleDeleteBtnClick);
   
           liEl.append(buttonEl);
-          readyEl.append(liEl);
+          return liEl;
+    
         }
       }
     });
+    readyEl.append(liEl);
+
   };
   refreshBurgers();
   
